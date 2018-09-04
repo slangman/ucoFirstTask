@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="kz.uco.ucofirsttask.web.account.AccountEdit"
+        datasource="accountDs"
+        focusComponent="fieldGroup"
+        messagesPack="kz.uco.ucofirsttask.web.account">
+    <dsContext>
+        <datasource id="accountDs"
+                    class="kz.uco.ucofirsttask.entity.Account"
+                    view="_local"/>
+        <collectionDatasource id="contactsDs"
+                              class="kz.uco.ucofirsttask.entity.Contact">
+            <query>
+                <![CDATA[select e from ucofirsttask$Contact e where e.account.id = :ds$accountDs]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="accountDs">
+            <column width="250px">
+                <field property="fName"/>
+                <field property="mName"/>
+                <field property="lName"/>
+            </column>
+        </fieldGroup>
+        <table height="100px"
+               width="200px">
+            <columns>
+                <column id="contactType"/>
+                <column id="value"/>
+            </columns>
+            <rows datasource="contactsDs"/>
+        </table>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

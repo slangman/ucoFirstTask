@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="kz.uco.ucofirsttask.web.contact.ContactBrowse"
+        focusComponent="contactsTable"
+        lookupComponent="contactsTable"
+        messagesPack="kz.uco.ucofirsttask.web.contact">
+    <dsContext>
+        <groupDatasource id="contactsDs"
+                         class="kz.uco.ucofirsttask.entity.Contact"
+                         view="contact-with-account">
+            <query>
+                <![CDATA[select e from ucofirsttask$Contact e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="contactsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="contactsTable"
+                datasource="contactsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="contactsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="contactType"/>
+                <column id="account"/>
+                <column id="value"/>
+            </columns>
+            <rows datasource="contactsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="contactsTable.create"/>
+                <button id="editBtn"
+                        action="contactsTable.edit"/>
+                <button id="removeBtn"
+                        action="contactsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="kz.uco.ucofirsttask.web.account.AccountBrowse"
+        focusComponent="accountsTable"
+        lookupComponent="accountsTable"
+        messagesPack="kz.uco.ucofirsttask.web.account">
+    <dsContext>
+        <groupDatasource id="accountsDs"
+                         class="kz.uco.ucofirsttask.entity.Account"
+                         view="_local">
+            <query>
+                <![CDATA[select e from ucofirsttask$Account e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="accountsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="accountsTable"
+                datasource="accountsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="accountsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="fName"/>
+                <column id="mName"/>
+                <column id="lName"/>
+            </columns>
+            <rows datasource="accountsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="accountsTable.create"/>
+                <button id="editBtn"
+                        action="accountsTable.edit"/>
+                <button id="removeBtn"
+                        action="accountsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>
