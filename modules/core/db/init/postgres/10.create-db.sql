@@ -12,7 +12,6 @@ create table UCOFIRSTTASK_ACCOUNT (
     F_NAME varchar(255) not null,
     M_NAME varchar(255),
     L_NAME varchar(255) not null,
-    IMAGE bytea,
     IMAGE_FILE_ID uuid,
     --
     primary key (ID)

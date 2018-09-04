@@ -24,8 +24,6 @@ public class Account extends StandardEntity {
     @Column(name = "L_NAME", nullable = false)
     protected String lName;
 
-    @Column(name = "IMAGE")
-    protected byte[] image;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "IMAGE_FILE_ID")
@@ -53,14 +51,6 @@ public class Account extends StandardEntity {
 
     public String getLName() {
         return lName;
-    }
-
-    public void setImage(FileDescriptor image) {
-        this.image = image;
-    }
-
-    public byte[] getImage() {
-        return image;
     }
 
     public void setImageFile(FileDescriptor imageFile) {

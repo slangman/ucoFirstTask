@@ -36,6 +36,25 @@
             </columns>
             <rows datasource="contactsDs"/>
         </table>
+        <vbox spacing="true">
+            <groupBox id="accountImageBox">
+                <image id="accountImage"
+                       align="MIDDLE_CENTER"
+                       height="200px"
+                       scaleMode="CONTAIN"
+                       width="200px"/>
+            </groupBox>
+            <upload id="uploadField"
+                    align="MIDDLE_CENTER"/>
+
+            <button id="downloadImageBtn"
+                    caption="Download"
+                    invoke="onDownloadImageBtnClick"/>
+            <button id="clearImageBtn"
+                    caption="Clear"
+                    invoke="onClearImageBtnClick"/>
+
+        </vbox>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>
