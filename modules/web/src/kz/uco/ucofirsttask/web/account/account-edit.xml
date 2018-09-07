@@ -5,57 +5,85 @@
         datasource="accountDs"
         focusComponent="fieldGroup"
         messagesPack="kz.uco.ucofirsttask.web.account">
+    <!--dialogMode height="600"
+                width="800"/-->
     <dsContext>
         <datasource id="accountDs"
                     class="kz.uco.ucofirsttask.entity.Account"
-                    view="_local"/>
-        <collectionDatasource id="contactsDs"
-                              class="kz.uco.ucofirsttask.entity.Contact">
-            <query>
-                <![CDATA[select e from ucofirsttask$Contact e where e.account.id = :ds$accountDs]]>
-            </query>
-        </collectionDatasource>
+                    view="view-account-edit">
+            <collectionDatasource id="contactsDs"
+                                  property="contacts"/>
+        </datasource>
     </dsContext>
-    <dialogMode height="600"
-                width="800"/>
-    <layout expand="windowActions"
-            spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="accountDs">
-            <column width="250px">
-                <field property="fName"/>
-                <field property="mName"/>
-                <field property="lName"/>
-            </column>
-        </fieldGroup>
-        <table height="100px"
-               width="200px">
-            <columns>
-                <column id="contactType"/>
-                <column id="value"/>
-            </columns>
-            <rows datasource="contactsDs"/>
-        </table>
-        <vbox spacing="true">
-            <groupBox id="accountImageBox">
-                <image id="accountImage"
-                       align="MIDDLE_CENTER"
-                       height="200px"
-                       scaleMode="CONTAIN"
-                       width="200px"/>
+    <!--<dialogMode height="600"
+                width="800"/>-->
+    <layout spacing="true" expand="hbox">
+        <hbox height="100%" id="hbox"
+              spacing="true"
+              width="100%">
+            <groupBox id="photo"
+                      caption="Photo">
+                <vbox width="100%" spacing="true" >
+                    <image id="accountImage"
+                           align="TOP_CENTER"
+                           height="100%"
+                           scaleMode="CONTAIN"
+                           width="100%"/>
+
+                    <buttonsPanel>
+                        <upload id="uploadField"
+                                align="BOTTOM_LEFT"/>
+                        <button id="downloadImageBtn"
+                                align="BOTTOM_LEFT"
+                                caption="Download"
+                                invoke="onDownloadImageBtnClick"/>
+                        <button id="clearImageBtn"
+                                align="BOTTOM_LEFT"
+                                caption="Clear"
+                                invoke="onClearImageBtnClick"/>
+                    </buttonsPanel>
+                </vbox>
             </groupBox>
-            <upload id="uploadField"
-                    align="MIDDLE_CENTER"/>
-
-            <button id="downloadImageBtn"
-                    caption="Download"
-                    invoke="onDownloadImageBtnClick"/>
-            <button id="clearImageBtn"
-                    caption="Clear"
-                    invoke="onClearImageBtnClick"/>
-
-        </vbox>
-        <frame id="windowActions"
+            <fieldGroup id="fieldGroup"
+                        datasource="accountDs"
+                        width="100%">
+                <column width="100%">
+                    <field property="fName"/>
+                    <field property="mName"/>
+                    <field property="lName"/>
+                </column>
+            </fieldGroup>
+            <table id="contactsTable"
+                   width="100%" >
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="contactType"/>
+                    <column id="value"/>
+                </columns>
+                <rows datasource="contactsDs"/>
+                <buttonsPanel>
+                    <button action="contactsTable.create"/>
+                    <button action="contactsTable.edit"/>
+                    <button action="contactsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </hbox>
+        <frame id="windowactions_1"
                screen="editWindowActions"/>
     </layout>
+    <!--layout expand="addContact"
+            spacing="true">
+        <fieldGroup id="customerGroup"
+                    datasource="customerDs">
+            <column width="200px">
+                <field property="name"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout-->
 </window>

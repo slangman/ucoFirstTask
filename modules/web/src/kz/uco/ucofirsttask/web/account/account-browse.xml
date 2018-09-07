@@ -8,7 +8,7 @@
     <dsContext>
         <groupDatasource id="accountsDs"
                          class="kz.uco.ucofirsttask.entity.Account"
-                         view="_local">
+                         view="view-accounts-list">
             <query>
                 <![CDATA[select e from ucofirsttask$Account e]]>
             </query>
@@ -31,9 +31,8 @@
                 <action id="remove"/>
             </actions>
             <columns>
-                <column id="fName"/>
-                <column id="mName"/>
-                <column id="lName"/>
+                <column id="imageFile" width="60px" align="CENTER"/>
+                <column id="name" align="LEFT"/>
             </columns>
             <rows datasource="accountsDs"/>
             <rowsCount/>
@@ -45,6 +44,8 @@
                         action="accountsTable.edit"/>
                 <button id="removeBtn"
                         action="accountsTable.remove"/>
+                <button id="ordersBtn" caption="Заказы"
+                invoke="openOrdersPage"/>
             </buttonsPanel>
         </groupTable>
     </layout>

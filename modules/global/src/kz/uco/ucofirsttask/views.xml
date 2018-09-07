@@ -6,5 +6,50 @@
         <property name="account"
                   view="_minimal"/>
     </view>
-
+    <view class="kz.uco.ucofirsttask.entity.Account"
+          extends="_local"
+          name="view-account-edit">
+        <property name="imageFile"
+                  view="_minimal">
+            <property name="size"/>
+        </property>
+        <property name="contacts"
+                  view="_local"/>
+    </view>
+    <view class="kz.uco.ucofirsttask.entity.Account"
+          extends="_minimal"
+          name="view-accounts-list">
+        <property name="imageFile"
+                  view="_minimal">
+            <property name="size"/>
+        </property>
+    </view>
+    <view class="kz.uco.ucofirsttask.entity.OrderLine"
+          extends="_local"
+          name="orderLine-with-product">
+        <property name="product"
+                  view="_local"/>
+    </view>
+    <view class="kz.uco.ucofirsttask.entity.Order"
+          extends="_local"
+          name="order-with-account">
+        <property name="account"
+                  view="_minimal"/>
+    </view>
+    <view class="kz.uco.ucofirsttask.entity.Order"
+          extends="_local"
+          name="order-edit">
+        <property name="account"
+                  view="_minimal"/>
+        <property name="lines"
+                  view="orderLine-with-product"/>
+    </view>
+    <view class="kz.uco.ucofirsttask.entity.Product"
+          extends="_local"
+          name="product-view-with-image">
+        <property name="imageFile"
+                  view="_minimal">
+            <property name="size"/>
+        </property>
+    </view>
 </views>

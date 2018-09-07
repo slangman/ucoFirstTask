@@ -5,5 +5,9 @@
                       transaction-type="RESOURCE_LOCAL">
         <class>kz.uco.ucofirsttask.entity.Account</class>
         <class>kz.uco.ucofirsttask.entity.Contact</class>
+        <class>kz.uco.ucofirsttask.entity.Product</class>
+        <class>kz.uco.ucofirsttask.entity.Order</class>
+        <class>kz.uco.ucofirsttask.entity.OrderLine</class>
+        <class>kz.uco.ucofirsttask.entity.Asdsd</class>
     </persistence-unit>
 </persistence>

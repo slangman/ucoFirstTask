@@ -19,8 +19,10 @@
             <column width="250px">
                 <field property="contactType"/>
                 <field property="account"/>
-                <field property="value"/>
+                <field id = "email" property="value" visible="true"/>
+                <field id = "phone" property="value" mask = "+#(###)###-##-##" visible="false"/>
             </column>
+
         </fieldGroup>
         <frame id="windowActions"
                screen="editWindowActions"/>

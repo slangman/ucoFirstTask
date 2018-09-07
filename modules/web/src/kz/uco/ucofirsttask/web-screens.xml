@@ -8,4 +8,22 @@
             template="kz/uco/ucofirsttask/web/contact/contact-browse.xml"/>
     <screen id="ucofirsttask$Contact.edit"
             template="kz/uco/ucofirsttask/web/contact/contact-edit.xml"/>
+    <screen id="ucofirsttask$Product.browse"
+            template="kz/uco/ucofirsttask/web/product/product-browse.xml"/>
+    <screen id="ucofirsttask$Product.edit"
+            template="kz/uco/ucofirsttask/web/product/product-edit.xml"/>
+    <screen id="ucofirsttask$Order.browse"
+            template="kz/uco/ucofirsttask/web/order/order-browse.xml"/>
+    <screen id="ucofirsttask$OrderLine.edit"
+            template="kz/uco/ucofirsttask/web/orderline/order-line-edit.xml"/>
+    <screen id="ucofirsttask$Order.edit"
+            template="kz/uco/ucofirsttask/web/order/order-edit.xml"/>
+    <screen id="screen.copy"
+            template="kz/uco/ucofirsttask/web/order/screen-copy.xml"/>
+    <screen id="AccountOrders"
+            template="kz/uco/ucofirsttask/web/account/AccountOrders.xml"/>
+    <screen id="ucofirsttask$Frame"
+            template="kz/uco/ucofirsttask/web/product/frame.xml"/>
+    <screen id="product-view"
+            template="kz/uco/ucofirsttask/web/product/product-view.xml"/>
 </screen-config>

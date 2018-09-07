@@ -9,6 +9,9 @@ import kz.uco.ucofirsttask.annotation.CheckContactValidity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import com.haulmont.cuba.core.entity.annotation.Lookup;
+import com.haulmont.cuba.core.entity.annotation.LookupType;
+import javax.validation.constraints.NotNull;
 
 //@CheckContactValidity
 @Table(name = "UCOFIRSTTASK_CONTACT")
@@ -16,9 +19,11 @@ import javax.persistence.ManyToOne;
 public class Contact extends StandardEntity {
     private static final long serialVersionUID = 1214950608658114867L;
 
-    @Column(name = "CONTACT_TYPE")
+    @NotNull
+    @Column(name = "CONTACT_TYPE", nullable = false)
     protected Integer contactType;
 
+    @Lookup(type = LookupType.DROPDOWN, actions = {"lookup", "open"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACCOUNT_ID")
     protected Account account;
