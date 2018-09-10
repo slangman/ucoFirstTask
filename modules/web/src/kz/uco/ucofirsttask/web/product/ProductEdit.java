@@ -1,43 +1,42 @@
-package kz.uco.ucofirsttask.web.account;
+package kz.uco.ucofirsttask.web.product;
 
-import com.haulmont.cuba.core.global.Metadata;
+import com.haulmont.cuba.core.entity.FileDescriptor;
+import com.haulmont.cuba.core.global.FileStorageException;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.data.DataSupplier;
 import com.haulmont.cuba.gui.data.Datasource;
 import com.haulmont.cuba.gui.export.ExportDisplay;
 import com.haulmont.cuba.gui.export.ExportFormat;
-import kz.uco.ucofirsttask.entity.Account;
-import com.haulmont.cuba.core.entity.FileDescriptor;
-import com.haulmont.cuba.core.global.FileStorageException;
-import com.haulmont.cuba.gui.app.security.user.edit.UserEditor;
-import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.upload.FileUploadingAPI;
+import kz.uco.ucofirsttask.entity.Account;
 import kz.uco.ucofirsttask.entity.Contact;
+import kz.uco.ucofirsttask.entity.Product;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Map;
 
-public class AccountEdit extends AbstractEditor<Account> {
+public class ProductEdit extends AbstractEditor<Product> {
 
-    @Inject
-    private DataSupplier dataSupplier;
-    @Inject
-    private FileUploadingAPI fileUploadingAPI;
     @Inject
     private ExportDisplay exportDisplay;
     @Inject
-    private FileUploadField uploadField;
-    /*@Inject
-    private Button downloadImageBtn;*/
+    private Button downloadImageBtn;
     @Inject
     private Button clearImageBtn;
     @Inject
-    private Datasource<Account> accountDs;
+    private Image productImage;
     @Inject
-    private Image accountImage;
+    private FileUploadField uploadField;
+    @Inject
+    private FileUploadingAPI fileUploadingAPI;
+    @Inject
+    private DataSupplier dataSupplier;
+    @Inject
+    private Datasource<Contact> productDs;
 
     @Override
     public void init(Map<String, Object> params) {
+
         uploadField.addFileUploadSucceedListener(event -> {
             FileDescriptor fd = uploadField.getFileDescriptor();
             try {
@@ -52,7 +51,7 @@ public class AccountEdit extends AbstractEditor<Account> {
         uploadField.addFileUploadErrorListener(event ->
                 showNotification("File upload error", NotificationType.HUMANIZED));
 
-        accountDs.addItemPropertyChangeListener(event -> {
+        productDs.addItemPropertyChangeListener(event -> {
             if ("imageFile".equals(event.getProperty()))
                 updateImageButtons(event.getValue() != null);
         });
@@ -65,11 +64,10 @@ public class AccountEdit extends AbstractEditor<Account> {
         updateImageButtons(getItem().getImageFile() != null);
     }
 
-    //method to use when user image download button activated
-    /*public void onDownloadImageBtnClick() {
+    public void onDownloadImageBtnClick() {
         if (getItem().getImageFile() != null)
             exportDisplay.show(getItem().getImageFile(), ExportFormat.OCTET_STREAM);
-    }*/
+    }
 
     public void onClearImageBtnClick() {
         getItem().setImageFile(null);
@@ -77,15 +75,20 @@ public class AccountEdit extends AbstractEditor<Account> {
     }
 
     private void updateImageButtons(boolean enable) {
+        downloadImageBtn.setEnabled(enable);
         clearImageBtn.setEnabled(enable);
     }
 
     private void displayImage() {
         if (getItem().getImageFile() != null) {
-            accountImage.setSource(FileDescriptorResource.class).setFileDescriptor(getItem().getImageFile());
-            accountImage.setVisible(true);
+            productImage.setScaleMode(Image.ScaleMode.SCALE_DOWN);
+            productImage.setWidth("100%");
+            //productImage.setHeight("300px");
+            productImage.setSource(FileDescriptorResource.class).setFileDescriptor(getItem().getImageFile());
+            productImage.setVisible(true);
         } else {
-            accountImage.setVisible(false);
+            productImage.setVisible(false);
         }
     }
+
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="kz.uco.ucofirsttask.web.product.ProductEdit"
+        datasource="productDs"
+        focusComponent="fieldGroup"
+        messagesPack="kz.uco.ucofirsttask.web.product">
+    <dsContext>
+        <datasource id="productDs"
+                    class="kz.uco.ucofirsttask.entity.Product"
+                    view="product-view-with-image"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <hbox spacing="true" height="400px">
+            <groupBox id="photo"
+                      caption="Image"
+                      width="400px"
+                      height="auto">
+                <vbox spacing="true">
+                    <image id="productImage"
+                           align="TOP_CENTER"
+                           scaleMode="SCALE_DOWN"
+                            />
+                    <buttonsPanel>
+                        <upload id="uploadField"
+                                align="BOTTOM_LEFT"/>
+                        <button id="downloadImageBtn"
+                                align="BOTTOM_LEFT"
+                                caption="Download"
+                                invoke="onDownloadImageBtnClick"/>
+                        <button id="clearImageBtn"
+                                align="BOTTOM_LEFT"
+                                caption="Clear"
+                                invoke="onClearImageBtnClick"/>
+                    </buttonsPanel>
+                </vbox>
+            </groupBox>
+            <fieldGroup id="fieldGroup"
+                        datasource="productDs"
+                        width="100%">
+                <column width="250px">
+                    <field property="name"/>
+                    <field property="price"/>
+                    <field property="description"/>
+                </column>
+            </fieldGroup>
+        </hbox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

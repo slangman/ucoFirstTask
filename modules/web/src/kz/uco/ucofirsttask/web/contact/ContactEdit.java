@@ -25,14 +25,14 @@ public class ContactEdit extends AbstractEditor<Contact> {
     @Inject
     private FieldGroup fieldGroup;
     @Inject
-    private  Field accountField;
+    private Field accountField;
     @Inject
     private ComponentsFactory componentsFactory;
 
     @Override
     public void init(Map<String, Object> params) {
         getDialogOptions()
-                .setWidth("400px") // fixed width
+                .setWidth("400px")
                 .setHeight("auto")
                 .setForceDialog(true); // always open as a dialog
 
@@ -44,20 +44,16 @@ public class ContactEdit extends AbstractEditor<Contact> {
             }
             if (e.getItem().getContactType() == ContactType.phone) {
                 fieldGroup.getField("email").setVisible(false);
-                fieldGroup.getField("phone").setVisible(true);;
+                fieldGroup.getField("phone").setVisible(true);
             }
         });
-
-        /*if (accountDs.getItem()!=null) {
-            accountField.setVisible(false);
-        }*/
     }
 
     @Override
     public void ready() {
-       if (contactDs.getItem().getAccount()!=null) {
-           fieldGroup.getField("accountField").setVisible(false);
-       }
+        if (contactDs.getItem().getAccount() != null) {
+            fieldGroup.getField("accountField").setVisible(false);
+        }
     }
 
     @Override
@@ -67,15 +63,12 @@ public class ContactEdit extends AbstractEditor<Contact> {
 
         String emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
 
-        String phoneRegex = "[+]\\d{1,3}[(]\\d{3}[)]\\d{7}";
-
         if (contact.getContactType() == ContactType.email) {
             Matcher matcher = Pattern.compile(emailRegex).matcher(contact.getValue());
             if (!matcher.matches()) {
                 errors.add("Wrong email format");
             }
         }
-
     }
 
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption.AccountsOrders"
+        class="kz.uco.ucofirsttask.web.account.Accountorders"
+        messagesPack="kz.uco.ucofirsttask.web.account">
+    <!--dialogMode height="600"
+                width="800"/-->
+    <!--dialogMode height="600"
+                width="800"/>-->
+    <dsContext>
+        <collectionDatasource id="ordersDs"
+                              class="kz.uco.ucofirsttask.entity.Order"
+                              view="order-with-account">
+            <query>
+                <![CDATA[select e from ucofirsttask$Order e
+where e.account.id = :param$account]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="orderLinesDs"
+                              class="kz.uco.ucofirsttask.entity.OrderLine"
+                              view="orderLine-with-product">
+            <query>
+                <![CDATA[select e from ucofirsttask$OrderLine e
+where e.order.id = :ds$ordersDs]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <!--<dialogMode height="600"
+                width="800"/>-->
+    <layout expand="hbox"
+            spacing="true">
+
+
+        <!--<label id="pageLabel"/>-->
+        <hbox id="hbox"
+              align="TOP_CENTER"
+              spacing="true" width="100%">
+
+            <split height="auto"
+                   width="100%"
+                   orientation="horizontal">
+
+                <table id="ordersTable"
+                       width="100%">
+                    <columns>
+                        <column id="date"/>
+                        <column id="amount"/>
+                    </columns>
+                    <rows datasource="ordersDs"/>
+                </table>
+
+                <table id="orderLinesTable"
+                       width="100%">
+                    <columns>
+                        <column id="quantity"/>
+                        <column id="product"/>
+                    </columns>
+                    <rows datasource="orderLinesDs"/>
+                </table>
+
+            </split>
+
+
+
+        </hbox>
+    </layout>
+</window>

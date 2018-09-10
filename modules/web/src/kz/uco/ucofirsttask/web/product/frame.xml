@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="kz.uco.ucofirsttask.web.product.Frame"
+        messagesPack="kz.uco.ucofirsttask.web.product">
+    <dsContext>
+        <datasource id="productDs"
+                    class="kz.uco.ucofirsttask.entity.Product"
+                    view="product-view-with-image"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout/>
+</window>

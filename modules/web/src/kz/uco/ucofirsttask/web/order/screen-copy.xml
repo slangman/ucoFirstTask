@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="kz.uco.ucofirsttask.web.order.Screen"
+        messagesPack="kz.uco.ucofirsttask.web.order">
+    <dsContext>
+        <collectionDatasource id="ordersDs"
+                              class="kz.uco.ucofirsttask.entity.Order">
+            <query>
+                <![CDATA[select e from ucofirsttask$Order e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout/>
+</window>
