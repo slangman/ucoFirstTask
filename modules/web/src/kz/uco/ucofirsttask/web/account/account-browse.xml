@@ -35,7 +35,7 @@
                         caption="msg://accountsTable.imageColumn"
                         width="60px"
                         align="CENTER"/>
-                <column id="name"
+                <column id="fullName"
                         caption="msg://accountsTable.nameColumn"
                         align="LEFT"/>
             </columns>

@@ -3,6 +3,7 @@ package kz.uco.ucofirsttask.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
@@ -77,5 +78,11 @@ public class Account extends StandardEntity {
 
     public FileDescriptor getImageFile() {
         return imageFile;
+    }
+
+    @MetaProperty
+    public String getFullName() {
+        StringBuffer sb = new StringBuffer(getFName()).append(" ").append(getLName());
+        return sb.toString();
     }
 }

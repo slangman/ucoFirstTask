@@ -2,8 +2,10 @@ package kz.uco.ucofirsttask.web.contact;
 
 import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.components.*;
+import com.haulmont.cuba.gui.components.validators.EmailValidator;
 import com.haulmont.cuba.gui.data.Datasource;
 import com.haulmont.cuba.gui.xml.layout.ComponentsFactory;
+
 import kz.uco.ucofirsttask.entity.Account;
 import kz.uco.ucofirsttask.entity.Contact;
 import kz.uco.ucofirsttask.entity.ContactType;
@@ -28,6 +30,12 @@ public class ContactEdit extends AbstractEditor<Contact> {
     private Field accountField;
     @Inject
     private ComponentsFactory componentsFactory;
+    @Inject
+    private EmailValidator emailValidator;
+    @Inject
+    private Field email;
+    @Inject
+    private Field phone;
 
     @Override
     public void init(Map<String, Object> params) {
@@ -56,7 +64,8 @@ public class ContactEdit extends AbstractEditor<Contact> {
         }
     }
 
-    @Override
+    //This works fine
+    /*@Override
     protected void postValidate(ValidationErrors errors) {
         super.postValidate(errors);
         Contact contact = getItem();
@@ -69,6 +78,6 @@ public class ContactEdit extends AbstractEditor<Contact> {
                 errors.add("Wrong email format");
             }
         }
-    }
+    }*/
 
 }

@@ -47,18 +47,19 @@ public class AccountBrowse extends AbstractLookup {
             return hBox;
         });
 
-        accountsTable.addGeneratedColumn("name", entity -> {
-            Label name = componentsFactory.createComponent(Label.class);
-            name.setValue(entity.getFName() + " " + entity.getLName());
-            name.setAlignment(Alignment.MIDDLE_LEFT);
-            HBoxLayout hBox = componentsFactory.createComponent(HBoxLayout.class);
-            hBox.setSpacing(true);
-            hBox.add(name);
+//        accountsTable.addGeneratedColumn("name", entity -> {
+//            Label name = componentsFactory.createComponent(Label.class);
+//            //name.setValue(entity.getInstanceName());
+//            name.setValue(entity.getFullName());
+//            name.setAlignment(Alignment.MIDDLE_LEFT);
+//            HBoxLayout hBox = componentsFactory.createComponent(HBoxLayout.class);
+//            hBox.setSpacing(true);
+//            hBox.add(name);
+//
+//            return hBox;
+//        });
 
-            return hBox;
-        });
-
-        accountsTable.getColumn("name").setCaption("Name");
+        //accountsTable.getColumn("fullName").setCaption("Name");
         accountsTable.getColumn("imageFile").setCaption("Image");
         ordersBtn.setEnabled(false);
 

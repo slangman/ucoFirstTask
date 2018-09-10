@@ -23,8 +23,14 @@
             <column width="250px">
                 <field property="contactType"/>
                 <field property="account" id="accountField"/>
-                <field id = "email" property="value" visible="true"/>
-                <field id = "phone" property="value" mask = "+#(###)###-##-##" visible="false"/>
+                <field id = "email" property="value" visible="true">
+                    <validator class="com.haulmont.cuba.gui.components.validators.EmailValidator"
+                                message="Wrong email format!"/>
+                </field>
+                <field id = "phone" property="value" required="true" mask = "+#(###)###-##-##" visible="false">
+                    <validator class="kz.uco.ucofirsttask.web.contact.PhoneValidator"
+                                message="Wrong phone format!"/>
+                </field>
             </column>
 
         </fieldGroup>
