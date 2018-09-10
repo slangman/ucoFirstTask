@@ -34,8 +34,6 @@ public class AccountEdit extends AbstractEditor<Account> {
     @Inject
     private Datasource<Account> accountDs;
     @Inject
-    private Datasource<Contact> contactDs;
-    @Inject
     private Image accountImage;
 
     @Override
@@ -78,7 +76,7 @@ public class AccountEdit extends AbstractEditor<Account> {
     }
 
     private void updateImageButtons(boolean enable) {
-        downloadImageBtn.setEnabled(enable);
+        //downloadImageBtn.setEnabled(enable);
         clearImageBtn.setEnabled(enable);
     }
 
@@ -87,7 +85,6 @@ public class AccountEdit extends AbstractEditor<Account> {
             accountImage.setSource(FileDescriptorResource.class).setFileDescriptor(getItem().getImageFile());
             accountImage.setVisible(true);
         } else {
-            //return;
             accountImage.setVisible(false);
         }
     }

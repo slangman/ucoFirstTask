@@ -25,13 +25,15 @@ public class ContactEdit extends AbstractEditor<Contact> {
     @Inject
     private FieldGroup fieldGroup;
     @Inject
+    private  Field accountField;
+    @Inject
     private ComponentsFactory componentsFactory;
 
     @Override
     public void init(Map<String, Object> params) {
         getDialogOptions()
                 .setWidth("400px") // fixed width
-                .setHeight("400px")
+                .setHeight("auto")
                 .setForceDialog(true); // always open as a dialog
 
         contactDs.addItemPropertyChangeListener(e -> {
@@ -45,9 +47,18 @@ public class ContactEdit extends AbstractEditor<Contact> {
                 fieldGroup.getField("phone").setVisible(true);;
             }
         });
+
+        /*if (accountDs.getItem()!=null) {
+            accountField.setVisible(false);
+        }*/
     }
 
-
+    @Override
+    public void ready() {
+       if (contactDs.getItem().getAccount()!=null) {
+           fieldGroup.getField("accountField").setVisible(false);
+       }
+    }
 
     @Override
     protected void postValidate(ValidationErrors errors) {

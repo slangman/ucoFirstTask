@@ -6,7 +6,7 @@
         <item screen="ucofirsttask$Contact.browse"/>
         <item screen="ucofirsttask$Product.browse"/>
         <item screen="ucofirsttask$Order.browse"/>
-        <item screen="AccountOrders"/>
-        <item screen="product-view.xml"/>
+        <!--<item screen="AccountOrders"/>-->
+        <!--<item screen="product-view.xml"/>-->
     </menu>
 </menu-config>

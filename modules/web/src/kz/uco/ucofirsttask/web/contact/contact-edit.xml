@@ -9,7 +9,11 @@
         <datasource id="contactDs"
                     class="kz.uco.ucofirsttask.entity.Contact"
                     view="contact-with-account"/>
+        <datasource id="accountDs"
+                    class="kz.uco.ucofirsttask.entity.Account"
+                    view="view-account-edit"/>
     </dsContext>
+
     <dialogMode height="600"
                 width="800"/>
     <layout expand="windowActions"
@@ -18,7 +22,7 @@
                     datasource="contactDs">
             <column width="250px">
                 <field property="contactType"/>
-                <field property="account"/>
+                <field property="account" id="accountField"/>
                 <field id = "email" property="value" visible="true"/>
                 <field id = "phone" property="value" mask = "+#(###)###-##-##" visible="false"/>
             </column>

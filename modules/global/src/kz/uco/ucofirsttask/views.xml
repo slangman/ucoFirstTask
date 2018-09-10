@@ -28,13 +28,23 @@
           extends="_local"
           name="orderLine-with-product">
         <property name="product"
-                  view="_local"/>
+                  view="_local">
+            <property name="imageFile"
+                      view="_minimal">
+                <property name="size"/>
+            </property>
+        </property>
     </view>
     <view class="kz.uco.ucofirsttask.entity.Order"
           extends="_local"
           name="order-with-account">
         <property name="account"
-                  view="_minimal"/>
+                  view="_minimal">
+            <property name="imageFile"
+                      view="_minimal">
+                <property name="size"/>
+            </property>
+        </property>
     </view>
     <view class="kz.uco.ucofirsttask.entity.Order"
           extends="_local"
@@ -47,9 +57,9 @@
     <view class="kz.uco.ucofirsttask.entity.Product"
           extends="_local"
           name="product-view-with-image">
-        <property name="imageFile"
-                  view="_minimal">
-            <property name="size"/>
+        <property fetch="AUTO"
+                  name="imageFile"
+                  view="_local">
         </property>
     </view>
 </views>

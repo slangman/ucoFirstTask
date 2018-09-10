@@ -31,8 +31,13 @@
                 <action id="remove"/>
             </actions>
             <columns>
-                <column id="imageFile" width="60px" align="CENTER"/>
-                <column id="name" align="LEFT"/>
+                <column id="imageFile"
+                        caption="msg://accountsTable.imageColumn"
+                        width="60px"
+                        align="CENTER"/>
+                <column id="name"
+                        caption="msg://accountsTable.nameColumn"
+                        align="LEFT"/>
             </columns>
             <rows datasource="accountsDs"/>
             <rowsCount/>
@@ -44,7 +49,7 @@
                         action="accountsTable.edit"/>
                 <button id="removeBtn"
                         action="accountsTable.remove"/>
-                <button id="ordersBtn" caption="Заказы"
+                <button id="ordersBtn" caption="msg://caption.accountBrowser.ordersButton"
                 invoke="openOrdersPage"/>
             </buttonsPanel>
         </groupTable>

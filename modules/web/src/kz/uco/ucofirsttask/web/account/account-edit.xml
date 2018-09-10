@@ -33,13 +33,13 @@
                     <buttonsPanel>
                         <upload id="uploadField"
                                 align="BOTTOM_LEFT"/>
-                        <button id="downloadImageBtn"
+                        <!--<button id="downloadImageBtn"
                                 align="BOTTOM_LEFT"
-                                caption="Download"
-                                invoke="onDownloadImageBtnClick"/>
+                                caption="msg://caption.editAccount.downloadImageBtn"
+                                invoke="onDownloadImageBtnClick"/>-->
                         <button id="clearImageBtn"
                                 align="BOTTOM_LEFT"
-                                caption="Clear"
+                                caption="msg://caption.editAccount.clearImageBtn"
                                 invoke="onClearImageBtnClick"/>
                     </buttonsPanel>
                 </vbox>
@@ -48,9 +48,9 @@
                         datasource="accountDs"
                         width="100%">
                 <column width="100%">
-                    <field property="fName"/>
-                    <field property="mName"/>
-                    <field property="lName"/>
+                    <field property="fName" />
+                    <field property="mName" />
+                    <field property="lName" />
                 </column>
             </fieldGroup>
             <table id="contactsTable"
@@ -61,8 +61,8 @@
                     <action id="remove"/>
                 </actions>
                 <columns>
-                    <column id="contactType"/>
-                    <column id="value"/>
+                    <column id="contactType" caption="msg://caption.contactsTable.contactType"/>
+                    <column id="value" caption="msg://caption.contactsTable.value"/>
                 </columns>
                 <rows datasource="contactsDs"/>
                 <buttonsPanel>
